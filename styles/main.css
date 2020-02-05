@@ -34,3 +34,50 @@ header {
   align-items: center;
   margin: 0 10px;
 }
+
+.books-container {
+  overflow-y: auto;
+  max-height: 75vh;
+  padding: 10px;
+}
+
+
+.book {
+  display: flex;
+  margin-top: 15px;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+}
+
+.book-title {
+  display: inline;
+  font-weight: bold;
+  font-size: 1.2rem ;
+  display: inline-block;
+}
+
+.book-author {
+  font-size: 1rem;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttons button { font-size: 0.9rem;}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  padding: 3px;
+}
+
+.edit-btn {
+  background-color: orange;
+  padding: 3px;
+}

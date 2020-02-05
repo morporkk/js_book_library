@@ -18,8 +18,6 @@ function createBook() {
   renderSingle(book);
 }
 
-
-
 function getFormValues() {
   let title = document.getElementById('title').value;
   let author = document.getElementById('author').value;
@@ -39,19 +37,56 @@ function addBookToLibrary(book) {
 }
 
 function render() {
-  let bookContainer = document.querySelector('.library-container')
+  let bookContainer = document.querySelector('.books-container')
     myLibrary.forEach(book => {
-      let li = document.createElement('p');
-      li.textContent = `${book.title} | ${book.author}`;
-      bookContainer.appendChild(li);
+      let bookItem = createBookItem(book);
+      bookContainer.appendChild(bookItem);
   });
 }
 
 function renderSingle(book) {
-  let bookContainer = document.querySelector('.library-container')
-  let li = document.createElement('p');
-  li.textContent = `${book.title} | ${book.author}`;
-  bookContainer.appendChild(li);
+  let bookContainer = document.querySelector('.books-container')
+
+  bookItem = createBookItem(book)
+  bookContainer.appendChild(bookItem)
 }
+
+function createBookItem(book) {
+  let bookItem = document.createElement('div');
+  bookItem.classList.add('book');
+  let title = document.createElement('h4');
+  title.classList.add('book-title');
+  title.textContent = book.title;
+  let author = document.createElement('h5');
+  author.classList.add('book-author');
+  author.textContent = book.author;
+  
+  let buttons = makeBookButtons();
+  
+  bookItem.appendChild(title);
+  bookItem.appendChild(author);
+  bookItem.appendChild(buttons);
+  return bookItem;
+}
+
+function makeBookButtons() {
+  let buttons = document.createElement('div');
+  buttons.classList.add('buttons');
+
+  let deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('delete-btn');
+  deleteBtn.textContent = "Delete";
+  deleteBtn.addEventListener('click', () => {});
+  buttons.appendChild(deleteBtn);
+
+  let editBtn = document.createElement('button');
+  editBtn.classList.add('edit-btn');
+  editBtn.textContent = "Edit";
+  editBtn.addEventListener('click', () => {});
+  buttons.appendChild(editBtn);
+
+  return buttons;
+}
+
 
 render(myLibrary);
