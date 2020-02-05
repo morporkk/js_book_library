@@ -4,11 +4,7 @@
   padding: 0;
 }
 
-html {
-  height: 100%;
-}
-
-body {
+html, body {
   height: 100%;
 }
 
@@ -28,10 +24,10 @@ body {
   margin-top: 15px;
   padding: 20px 0px 20px 20px;
   box-shadow: 5px 10px 10px #adadad;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
-
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
